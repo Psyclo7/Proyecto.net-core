@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["title"] = "informacion autor";
+    Layout = "_PlantillaPr";
+}
+<h1>Desde la vista normal</h1>
+
+<h2>Id autor: @Model.id_autor</h2>
+<h2>nombre_autor: @Model.nombre_autor</h2>
+<h2>apellido_autor: @Model.apellido_autor</h2>
+<br />
+<br />
+<br />
+<h1>Dese la vista parcial</h1>
+<partial name ="autorSimple"/>
+
+
+
