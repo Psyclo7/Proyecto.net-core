@@ -10,8 +10,11 @@
     </div>
 }
 <p>
-    <a onclick="showInPopup('@Url.Action("Crear","Autores",new {id = 0}, Context.Request.Scheme)','')"
-       class="btn btn-sn btn-primary text-while"> <i class="fa fa-plus-circle"></i>Agregar un autor</a>
+    <a onclick="showInPopup('@Url.Action("Crear", "Autores",
+    new { id = 0 }, Context.Request.Scheme)' ,
+    '')" class="btn btn-sm btn-primary text-white">
+        <i class="fa fa-plus-circle"></i> Agregar un autor
+    </a>
 </p>
 <div class="col-md-12">
     <div class="card">
