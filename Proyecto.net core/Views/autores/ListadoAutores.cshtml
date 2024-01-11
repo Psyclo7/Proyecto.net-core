@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<Proyecto.net_core.Models.Entidades.Autor>
 @{
     ViewData["Title"] = "ListadoAutores";
+
 }
 
-@if (TempData["AlertMessage"] != null)
+
+@if (TempData["ALertMessage"] != null)
 {
     <div class=" alert alert-success">
-        <strong>Ok || ---</strong>@TempData["AlertMessage"]
+        <strong> Ok!!---</strong>@TempData["AlertMessage"]
     </div>
 }
+
 <p>
     <a onclick="showInPopup('@Url.Action("Crear", "Autores",
     new { id = 0 }, Context.Request.Scheme)' ,
@@ -16,18 +19,19 @@
         <i class="fa fa-plus-circle"></i> Agregar un autor
     </a>
 </p>
+
 <div class="col-md-12">
-    <div class="card">
+    <div class="card">  
         <div class=" card-header text-center">
             <h5>Lista de Autores</h5>
         </div>
-        <div class="card_body">
-            <table id="autor" class="table table-hover table table responsive table striped">
+        <div class=" card-body">
+            <table id="autor" class="table table-hover table responsive table stripped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">nombre</th>
-                        <th scope="col">apellido</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -36,15 +40,18 @@
                     {
                         <tr>
                             <th scope="row">@item.id_autor</th>
-                            <td>@Html.DisplayFor(modelItem => item.nombre_autor)</td>
-                            <td>@Html.DisplayFor(modelItem => item.apellido_autor)</td>
+                            <td> @Html.DisplayFor(modelItem => item.nombre_autor)</td>
+                            <td> @Html.DisplayFor(modelItem => item.apellido_autor)</td>
                             <td>
-                                <a onclick="showInPopup('@Url.Action("Editar","Autores", new {id = item.id_autor}, Context.Request.Scheme)'
-                                , 'Actualizar Autor')" class="btn btn-outline-warning btn-sm">
-                                    <i class="fa fa-pencil-all"></i>
+                                <a onclick="showInPopup('@Url.Action("Editar", "Autores",
+                                new { id = item.id_autor }, Context.Request.Scheme)' ,
+                                  'Actualizar Autor')" class="btn btn-outline-warning btn-sm">
+                                    <i class="fa fa-pencil-alt"></i>
                                 </a>
-                                <button data-id="@item.id_autor" class="btn btn-outline-danger btn-sm deleteItem"
-                                        data-bs-toggle="modal" data-bs-target="#deleteDialog">
+                                <button data-id="@item.id_autor"
+                                        class="btn btn-outline-danger btn-sm deleteItem"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#deleteDialog">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </td>
@@ -58,6 +65,7 @@
 
 <partial name="_MostrarModal" />
 <partial name="_ModalEliminar" />
+
 
 @section Scripts {
 

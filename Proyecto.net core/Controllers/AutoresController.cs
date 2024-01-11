@@ -37,7 +37,7 @@ namespace Proyecto.net_core.Controllers
             }
             return View();
         }
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Editar(int? id)
         {
             if (id == null || _context.Autores == null)
