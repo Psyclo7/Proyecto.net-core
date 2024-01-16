@@ -11,8 +11,8 @@ using Proyecto.net_core.Models;
 namespace Proyecto.net_core.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20240103161403_LibreriaITQ")]
-    partial class LibreriaITQ
+    [Migration("20240115174246_vc1")]
+    partial class vc1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -194,7 +194,7 @@ namespace Proyecto.net_core.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_usuario"));
 
-                    b.Property<string>("cedula")
+                    b.Property<string>("URLFotoPerfil")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -202,18 +202,11 @@ namespace Proyecto.net_core.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("id_rol")
-                        .HasColumnType("int");
-
                     b.Property<string>("nombre_usuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("telefono")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

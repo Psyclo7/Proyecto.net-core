@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Proyecto.net_core.Models;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace Proyecto.net_core.Controllers
 {
@@ -15,6 +16,22 @@ namespace Proyecto.net_core.Controllers
 
         public IActionResult Index()
         {
+            ClaimsPrincipal claimsUser = HttpContext.User;
+            string nombreUsuario = "";
+            string fotoPerfil = "";
+
+            if (claimsUser.Identity.IsAuthenticated)
+            {
+                nombreUsuario = claimsUser.Claims.Where(c => c.Type == ClaimTypes.Name)
+                    .Select(c => c.Value).SingleOrDefault();
+
+                fotoPerfil = claimsUser.Claims.Where(c => c.Type == "FotoPerfil")
+                    .Select(c => c.Value).SingleOrDefault();
+
+            }
+
+            ViewData["nombreUsuario"] = nombreUsuario;
+            ViewData["fotoPerfil"] = fotoPerfil;
             return View();
         }
 

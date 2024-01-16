@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Proyecto.net_core.Models;
 using Proyecto.net_core.Services;
@@ -15,8 +17,29 @@ builder.Services.AddDbContext<LibreriaContext>(o =>
 });
 
 builder.Services.AddScoped<IServicioLista, ServicioLista>();
+builder.Services.AddScoped<IServicioImagen, ServicioImagen>();
 builder.Services.AddScoped<IServicioAutores, ServicioAutores>();
 builder.Services.AddScoped<IServicioCategorias, ServicioCategoria>();
+builder.Services.AddScoped<IServicioUsuario, ServicioUsuario>();
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+             .AddCookie(options =>
+             {
+                 options.LoginPath = "/Login/IniciarSesion";
+                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+             });
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(
+        new ResponseCacheAttribute
+        {
+            NoStore = true,
+            Location = ResponseCacheLocation.None,
+        }
+       );
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

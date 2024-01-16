@@ -5,7 +5,7 @@
 namespace Proyecto.net_core.Migrations
 {
     /// <inheritdoc />
-    public partial class LibreriaITQ : Migration
+    public partial class vc1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -71,11 +71,9 @@ namespace Proyecto.net_core.Migrations
                     id_usuario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nombre_usuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    cedula = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    id_rol = table.Column<int>(type: "int", nullable: false)
+                    URLFotoPerfil = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
