@@ -126,6 +126,10 @@ namespace Proyecto.net_core.Migrations
                     b.Property<int>("Editorialid_editorial")
                         .HasColumnType("int");
 
+                    b.Property<string>("URLImagen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("año")
                         .HasColumnType("int");
 
@@ -163,7 +167,7 @@ namespace Proyecto.net_core.Migrations
 
                     b.HasIndex("categoriaid_categoria");
 
-                    b.ToTable("Libro");
+                    b.ToTable("Libros");
                 });
 
             modelBuilder.Entity("Proyecto.net_core.Models.Entidades.Roles", b =>

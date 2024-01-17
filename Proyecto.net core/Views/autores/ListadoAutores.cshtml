@@ -3,8 +3,6 @@
     ViewData["Title"] = "ListadoAutores";
 
 }
-
-
 @if (TempData["ALertMessage"] != null)
 {
     <div class=" alert alert-success">
@@ -68,23 +66,20 @@
 
 
 @section Scripts {
-
     <script src="~/js/showmodal.js"></script>
-
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
     <script>
         $(document).ready(function () {
-            $('#autor').DataTable(
-                {
-                    "language": {
-                        url: "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
-                    },
-                });
+            $('#Candidato').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+                },
+            });
         });
     </script>
 
     <script>
-        sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/Autores/Eliminar/', false);
+        sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/Candidato/Eliminar/', false);
     </script>
 }

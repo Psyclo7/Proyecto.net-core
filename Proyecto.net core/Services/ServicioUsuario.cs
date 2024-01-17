@@ -25,6 +25,14 @@ namespace Proyecto.net_core.Services
             return await _context.Usuarios.FirstOrDefaultAsync(u => u.nombre_usuario == nombre_usuario);
         }
 
+        public async Task<Usuario> GetUsuarioPorCorreo(string correo)
+        {
+            Usuario usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.correo == correo);
+
+            return usuario;
+        }
+
         public async Task<Usuario> SaveUsuario(Usuario usuario)
         {
             _context.Usuarios.Add(usuario);

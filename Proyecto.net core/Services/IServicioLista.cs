@@ -5,7 +5,7 @@ namespace Proyecto.net_core.Services
 {
     public interface IServicioLista
     {
-        Task<IEnumerable<SelectListItem>>
+        Task<IEnumerable<SelectListItem>>   
             GetListaAutores();
         Task<IEnumerable<SelectListItem>>
             GetListaCategoria();

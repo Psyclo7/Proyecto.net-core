@@ -22,6 +22,7 @@ namespace Proyecto.net_core.Models
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Ventas> Ventas { get; set; }
+        public DbSet<Libro> Libros { get; set; }    
         //modelo de creacion 
         //metodo para conectar la base de datos con el visual studio
         protected override void OnModelCreating(ModelBuilder modelBuilder)

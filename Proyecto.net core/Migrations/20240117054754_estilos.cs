@@ -5,7 +5,7 @@
 namespace Proyecto.net_core.Migrations
 {
     /// <inheritdoc />
-    public partial class vc1 : Migration
+    public partial class estilos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -81,7 +81,7 @@ namespace Proyecto.net_core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Libro",
+                name: "Libros",
                 columns: table => new
                 {
                     id_libro = table.Column<int>(type: "int", nullable: false)
@@ -96,25 +96,26 @@ namespace Proyecto.net_core.Migrations
                     id_editorial = table.Column<int>(type: "int", nullable: false),
                     Editorialid_editorial = table.Column<int>(type: "int", nullable: false),
                     id_categoria = table.Column<int>(type: "int", nullable: false),
-                    categoriaid_categoria = table.Column<int>(type: "int", nullable: false)
+                    categoriaid_categoria = table.Column<int>(type: "int", nullable: false),
+                    URLImagen = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Libro", x => x.id_libro);
+                    table.PrimaryKey("PK_Libros", x => x.id_libro);
                     table.ForeignKey(
-                        name: "FK_Libro_Autores_Autorid_autor",
+                        name: "FK_Libros_Autores_Autorid_autor",
                         column: x => x.Autorid_autor,
                         principalTable: "Autores",
                         principalColumn: "id_autor",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Libro_Editoriales_Editorialid_editorial",
+                        name: "FK_Libros_Editoriales_Editorialid_editorial",
                         column: x => x.Editorialid_editorial,
                         principalTable: "Editoriales",
                         principalColumn: "id_editorial",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Libro_categorias_categoriaid_categoria",
+                        name: "FK_Libros_categorias_categoriaid_categoria",
                         column: x => x.categoriaid_categoria,
                         principalTable: "categorias",
                         principalColumn: "id_categoria",
@@ -160,9 +161,9 @@ namespace Proyecto.net_core.Migrations
                 {
                     table.PrimaryKey("PK_Detalle_Ventas", x => x.id_detalleVenta);
                     table.ForeignKey(
-                        name: "FK_Detalle_Ventas_Libro_Libroid_libro",
+                        name: "FK_Detalle_Ventas_Libros_Libroid_libro",
                         column: x => x.Libroid_libro,
-                        principalTable: "Libro",
+                        principalTable: "Libros",
                         principalColumn: "id_libro",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -184,18 +185,18 @@ namespace Proyecto.net_core.Migrations
                 column: "Ventasid_ventas");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Libro_Autorid_autor",
-                table: "Libro",
+                name: "IX_Libros_Autorid_autor",
+                table: "Libros",
                 column: "Autorid_autor");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Libro_categoriaid_categoria",
-                table: "Libro",
+                name: "IX_Libros_categoriaid_categoria",
+                table: "Libros",
                 column: "categoriaid_categoria");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Libro_Editorialid_editorial",
-                table: "Libro",
+                name: "IX_Libros_Editorialid_editorial",
+                table: "Libros",
                 column: "Editorialid_editorial");
 
             migrationBuilder.CreateIndex(
@@ -214,7 +215,7 @@ namespace Proyecto.net_core.Migrations
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Libro");
+                name: "Libros");
 
             migrationBuilder.DropTable(
                 name: "Ventas");

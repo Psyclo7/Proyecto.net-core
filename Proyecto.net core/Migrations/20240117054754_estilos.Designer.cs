@@ -11,8 +11,8 @@ using Proyecto.net_core.Models;
 namespace Proyecto.net_core.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20240115174246_vc1")]
-    partial class vc1
+    [Migration("20240117054754_estilos")]
+    partial class estilos
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -129,6 +129,10 @@ namespace Proyecto.net_core.Migrations
                     b.Property<int>("Editorialid_editorial")
                         .HasColumnType("int");
 
+                    b.Property<string>("URLImagen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("año")
                         .HasColumnType("int");
 
@@ -166,7 +170,7 @@ namespace Proyecto.net_core.Migrations
 
                     b.HasIndex("categoriaid_categoria");
 
-                    b.ToTable("Libro");
+                    b.ToTable("Libros");
                 });
 
             modelBuilder.Entity("Proyecto.net_core.Models.Entidades.Roles", b =>
